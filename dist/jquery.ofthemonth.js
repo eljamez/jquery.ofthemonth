@@ -30,11 +30,11 @@
     // Loop through this month, fill weekdays array
     for (var d = first_day_of_this_month; d <= last_day_of_this_month; d.setDate(d.getDate() + 1)) {
       if(d < today) {
-        if(weekday[d.getDay()] == opts.next_day) {
+        if(weekday[d.getDay()] == opts.which_day) {
           weekdaysOfThisMonth.push(new Date(d));
         }
       } else {
-        if(weekday[d.getDay()] == opts.next_day) {
+        if(weekday[d.getDay()] == opts.which_day) {
           weekdaysOfThisMonth.push(new Date(d));
         }
       }
@@ -42,13 +42,13 @@
 
     // Loop through next month, fill weekdays array
     for (var d = first_day_of_next_month; d <= last_day_of_next_month; d.setDate(d.getDate() + 1)) {
-      if(weekday[d.getDay()] == opts.next_day) {
+      if(weekday[d.getDay()] == opts.which_day) {
         weekdaysOfNextMonth.push(new Date(d));
       }
     }
     
     // which week of the month
-    switch(opts.next_day_which_week) {
+    switch(opts.which_week) {
       case 'first' :
         this_month_target_date = weekdaysOfThisMonth[0];
         next_month_target_date = weekdaysOfNextMonth[0];
@@ -96,6 +96,6 @@
 
 // defaults set so users can update
 $.fn.ofthemonth.defaults = {
-  next_day: 'Friday', //Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
-  next_day_which_week: 'last' // first, second, second_to_last, last
+  which_day: 'Friday', //Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+  which_week: 'last' // first, second, second_to_last, last
 };
