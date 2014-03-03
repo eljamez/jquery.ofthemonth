@@ -31,6 +31,27 @@ This plugin is most useful if you are looking to retreive a specific day of the 
 	var myDate = $(this).ofthemonth();
 	```
 
+## Parameters
+
+The Plugin accepts the following values, which are case sensitive.
+
+#### which_day
+* Sunday
+* Monday
+* Tuesday
+* Wednesday
+* Thursday
+* Friday
+* Saturday
+
+#### which_week
+* first
+* second
+* third
+* fourth
+* second_to_last
+* last
+
 There you have it, You have a nice and neat date object.
 
 For formatting this date I really like <a href="http://momentjs.com/">Moment.js</a>.
