@@ -1,16 +1,18 @@
-/*!
+/*
  * jquery.ofthemonth.js
- * Author: @eljamez
+ * A plugin that returns the date object of a specific upsoming date
+ * Author: @eljamez, eljamez.com
+ * Version: 1.0, March 3rd, 2014
  */
 
-(function($){
-  $.fn.ofthemonth = function(options){
+( function($) {
+  $.fn.ofthemonth = function(options) {
 
     // get the options
     var opts = $.extend( {}, $.fn.ofthemonth.defaults, options ),
           // weekday array
-          weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-          month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+          weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
           // get today's date
           today = new Date(),
           first_day_of_this_month = new Date(today.getFullYear(), today.getMonth(), 1),
@@ -20,21 +22,21 @@
           // next date we want to return
           target_date = new Date(),
           // look for next month
-          this_month = today.getMonth();
+          this_month = today.getMonth(),
           next_month = target_date.getMonth()+1,
           weekdaysOfThisMonth = [],
           weekdaysOfNextMonth = [],
-          this_month_target_date = new Date();
+          this_month_target_date = new Date(),
           next_month_target_date = new Date();
 
     // Loop through this month, fill weekdays array
     for (var d = first_day_of_this_month; d <= last_day_of_this_month; d.setDate(d.getDate() + 1)) {
-      if(d < today) {
+      if (d < today) {
         if(weekday[d.getDay()] == opts.which_day) {
           weekdaysOfThisMonth.push(new Date(d));
         }
       } else {
-        if(weekday[d.getDay()] == opts.which_day) {
+        if (weekday[d.getDay()] == opts.which_day) {
           weekdaysOfThisMonth.push(new Date(d));
         }
       }
@@ -42,13 +44,13 @@
 
     // Loop through next month, fill weekdays array
     for (var d = first_day_of_next_month; d <= last_day_of_next_month; d.setDate(d.getDate() + 1)) {
-      if(weekday[d.getDay()] == opts.which_day) {
+      if (weekday[d.getDay()] == opts.which_day) {
         weekdaysOfNextMonth.push(new Date(d));
       }
     }
     
     // which week of the month
-    switch(opts.which_week) {
+    switch (opts.which_week) {
       case 'first' :
         this_month_target_date = weekdaysOfThisMonth[0];
         next_month_target_date = weekdaysOfNextMonth[0];
@@ -79,14 +81,14 @@
     }
 
     // check to see if we hit it this month or next
-    if(this_month_target_date > today) {
+    if (this_month_target_date > today) {
       target_date = this_month_target_date;
     } else {
       target_date = next_month_target_date;
     }
 
     // is it today?
-    if(this_month_target_date.getDay() == today.getDay() && this_month_target_date.getDate() == today.getDate()) {
+    if (this_month_target_date.getDay() == today.getDay() && this_month_target_date.getDate() == today.getDate()) {
       target_date = today;
     }
 

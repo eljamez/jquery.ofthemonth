@@ -6,7 +6,7 @@ This plugin is most useful if you are looking to retreive a specific day of the 
 
 ## Usage
 
-1. Include jQuery and Plugin
+1. Include jQuery and Plugin (assuming your JavaScript is in a folder called 'js')
 
 	```html
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
@@ -54,7 +54,7 @@ The Plugin accepts the following values, which are case sensitive.
 
 There you have it, You have a nice and neat date object.
 
-For formatting this date I really like <a href="http://momentjs.com/">Moment.js</a>.
+For formatting this date, I really like <a href="http://momentjs.com/">Moment.js</a>.
 
 <!--## demo
 <a href="http://eljamez.com/plugins/ofthemonth">View the live demo.</a>-->
