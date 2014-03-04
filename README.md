@@ -20,11 +20,11 @@ This plugin is most useful if you are looking to retreive a specific day of the 
 	$(this).ofthemonth();
 
 	// but you can change that by adding new defaults, like this
-	$.fn.ofthemonth.defaults.which_day = "Sunday";
-	$.fn.ofthemonth.defaults.which_week = "first";
+	$.fn.ofthemonth.defaults.whichDay = "Sunday";
+	$.fn.ofthemonth.defaults.whichWeek = "first";
 
 	// or just set the variables when calling the plugin
-	$(this).ofthemonth({which_day:"Tuesday",which_week:"second"}));
+	$(this).ofthemonth({whichDay:"Tuesday",whichWeek:"second"}));
 
 	// I like to set the new date object returned by the plugin to a variable
 
@@ -35,7 +35,7 @@ This plugin is most useful if you are looking to retreive a specific day of the 
 
 The Plugin accepts the following values, which are case sensitive.
 
-#### which_day
+#### whichDay
 * Sunday
 * Monday
 * Tuesday
@@ -44,7 +44,7 @@ The Plugin accepts the following values, which are case sensitive.
 * Friday
 * Saturday
 
-#### which_week
+#### whichWeek
 * first
 * second
 * third
