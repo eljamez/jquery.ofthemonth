@@ -5,41 +5,39 @@
  * Version: 1.0, March 3rd, 2014
  */
 
-/*global $ */
+/*global $, jQuery */
 
 (function ($) {
   $.fn.ofthemonth = function (options) {
     // get the options
     var opts = $.extend({}, $.fn.ofthemonth.defaults, options),
           weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
           today = new Date(),
           firstDayOfThisMonth = new Date(today.getFullYear(), today.getMonth(), 1),
           lastDayOfThisMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0),
           firstDayOfNextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1),
           lastDayOfNextMonth = new Date(today.getFullYear(), today.getMonth() + 2, 0),
           targetDate = new Date(),
-          thisMonth = today.getMonth(),
-          nextMonth = targetDate.getMonth() + 1,
           weekdaysOfThisMonth = [],
           weekdaysOfNextMonth = [],
           thisMonthTargetDate = new Date(),
-          nextMonthTargetDate = new Date();
+          nextMonthTargetDate = new Date(),
+          d = new Date();
     // Loop through this month, fill weekdays array
-    for (var d = firstDayOfThisMonth; d <= lastDayOfThisMonth; d.setDate(d.getDate() + 1)) {
+    for (d = firstDayOfThisMonth; d <= lastDayOfThisMonth; d.setDate(d.getDate() + 1)) {
       if (d < today) {
-        if(weekday[d.getDay()] == opts.whichDay) {
+        if(weekday[d.getDay()] === opts.whichDay) {
           weekdaysOfThisMonth.push(new Date(d));
         }
       } else {
-        if (weekday[d.getDay()] == opts.whichDay) {
+        if (weekday[d.getDay()] === opts.whichDay) {
           weekdaysOfThisMonth.push(new Date(d));
         }
       }
     }
     // Loop through next month, fill weekdays array
-    for (var d = firstDayOfNextMonth; d <= lastDayOfNextMonth; d.setDate(d.getDate() + 1)) {
-      if (weekday[d.getDay()] == opts.whichDay) {
+    for (d = firstDayOfNextMonth; d <= lastDayOfNextMonth; d.setDate(d.getDate() + 1)) {
+      if (weekday[d.getDay()] === opts.whichDay) {
         weekdaysOfNextMonth.push(new Date(d));
       }
     }
@@ -80,12 +78,12 @@
       targetDate = nextMonthTargetDate;
     }
     // is it today?
-    if (thisMonthTargetDate.getDay() == today.getDay() && thisMonthTargetDate.getDate() == today.getDate()) {
+    if (thisMonthTargetDate.getDay() === today.getDay() && thisMonthTargetDate.getDate() === today.getDate()) {
       targetDate = today;
     }
     return targetDate;
   };
-})( jQuery );
+}(jQuery));
 
 // defaults set so users can update
 $.fn.ofthemonth.defaults = {
