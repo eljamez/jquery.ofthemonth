@@ -51,11 +51,11 @@
 <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">ofthemonth</span><span class="p">();</span>
 
 <span class="c1">// but you can change that by adding new defaults, like this</span>
-<span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">ofthemonth</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">which_day</span> <span class="o">=</span> <span class="s2">"Sunday"</span><span class="p">;</span>
-<span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">ofthemonth</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">which_week</span> <span class="o">=</span> <span class="s2">"first"</span><span class="p">;</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">ofthemonth</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">whichDay</span> <span class="o">=</span> <span class="s2">"Sunday"</span><span class="p">;</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">ofthemonth</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">whichWeek</span> <span class="o">=</span> <span class="s2">"first"</span><span class="p">;</span>
 
 <span class="c1">// or just set the variables when calling the plugin</span>
-<span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">ofthemonth</span><span class="p">({</span><span class="nx">which_day</span><span class="o">:</span><span class="s2">"Tuesday"</span><span class="p">,</span><span class="nx">which_week</span><span class="o">:</span><span class="s2">"second"</span><span class="p">}));</span>
+<span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">ofthemonth</span><span class="p">({</span><span class="nx">whichDay</span><span class="o">:</span><span class="s2">"Tuesday"</span><span class="p">,</span><span class="nx">whichWeek</span><span class="o">:</span><span class="s2">"second"</span><span class="p">}));</span>
 
 <span class="c1">// I like to set the new date object returned by the plugin to a variable</span>
 
@@ -68,7 +68,7 @@
 <p>The Plugin accepts the following values, which are case sensitive.</p>
 
 <h4>
-<a name="which_day" class="anchor" href="#which_day"><span class="octicon octicon-link"></span></a>which_day</h4>
+<a name="whichday" class="anchor" href="#whichday"><span class="octicon octicon-link"></span></a>whichDay</h4>
 
 <ul>
 <li>Sunday</li>
@@ -79,7 +79,7 @@
 <li>Friday</li>
 <li>Saturday</li>
 </ul><h4>
-<a name="which_week" class="anchor" href="#which_week"><span class="octicon octicon-link"></span></a>which_week</h4>
+<a name="whichweek" class="anchor" href="#whichweek"><span class="octicon octicon-link"></span></a>whichWeek</h4>
 
 <ul>
 <li>first</li>
