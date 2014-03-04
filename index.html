@@ -31,37 +31,68 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <p>This plugin is most useful if you are looking to retreive a specific day of the month in the immediate future. For example, let's say you would like to get the js date object for the "next" Last Friday relitave to today's date. That is exactly what this plugin does. You can get the First, Second, Third, Fourth, Second to Last, or Last upcoming specific weekday, either in the current month or next (depending on what you are looking for).</p>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<ol>
+<li>
+<p>Include jQuery and Plugin (assuming your JavaScript is in a folder called 'js')</p>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/jquery.ofthemonth.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+</li>
+<li>
+<p>Call the plugin from your JavaScript</p>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<div class="highlight highlight-javascript"><pre><span class="c1">// default setting will return the last friday</span>
+<span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">ofthemonth</span><span class="p">();</span>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<span class="c1">// but you can change that by adding new defaults, like this</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">ofthemonth</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">which_day</span> <span class="o">=</span> <span class="s2">"Sunday"</span><span class="p">;</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">ofthemonth</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">which_week</span> <span class="o">=</span> <span class="s2">"first"</span><span class="p">;</span>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<span class="c1">// or just set the variables when calling the plugin</span>
+<span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">ofthemonth</span><span class="p">({</span><span class="nx">which_day</span><span class="o">:</span><span class="s2">"Tuesday"</span><span class="p">,</span><span class="nx">which_week</span><span class="o">:</span><span class="s2">"second"</span><span class="p">}));</span>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<span class="c1">// I like to set the new date object returned by the plugin to a variable</span>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<span class="kd">var</span> <span class="nx">myDate</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">ofthemonth</span><span class="p">();</span>
+</pre></div>
+</li>
+</ol><h2>
+<a name="parameters" class="anchor" href="#parameters"><span class="octicon octicon-link"></span></a>Parameters</h2>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>The Plugin accepts the following values, which are case sensitive.</p>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<h4>
+<a name="which_day" class="anchor" href="#which_day"><span class="octicon octicon-link"></span></a>which_day</h4>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<ul>
+<li>Sunday</li>
+<li>Monday</li>
+<li>Tuesday</li>
+<li>Wednesday</li>
+<li>Thursday</li>
+<li>Friday</li>
+<li>Saturday</li>
+</ul><h4>
+<a name="which_week" class="anchor" href="#which_week"><span class="octicon octicon-link"></span></a>which_week</h4>
+
+<ul>
+<li>first</li>
+<li>second</li>
+<li>third</li>
+<li>fourth</li>
+<li>second_to_last</li>
+<li>last</li>
+</ul><p>There you have it, You have a nice and neat date object.</p>
+
+<p>For formatting this date, I really like <a href="http://momentjs.com/">Moment.js</a>.</p>
+
+
       </section>
     </div>
 
